@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Implementation-Title: Cherry Client
+Implementation-Version: 1.0.0
+

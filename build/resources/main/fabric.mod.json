@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "cherry-client",
+  "version": "1.0.0",
+  "name": "Cherry Client",
+  "description": "A streaming-focused Fabric client with a polished right-shift menu and privacy features.",
+  "authors": ["GroupDev"],
+  "contact": {
+    "homepage": "https://example.com"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.groupdev.cherry.client.CherryClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.14",
+    "minecraft": "~1.21.1",
+    "fabric-api": "*",
+    "lowframe_screen_api": ">=1.0.0"
+  }
+}
