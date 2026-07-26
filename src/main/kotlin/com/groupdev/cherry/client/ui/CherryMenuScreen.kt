@@ -1,9 +1,10 @@
 package com.groupdev.cherry.client.ui
 
-import dev.lowframe.gui.api.LFButton
-import dev.lowframe.gui.api.LFScreen
+import net.minecraft.client.gui.screen.Screen
+import net.minecraft.client.gui.widget.ButtonWidget
+import net.minecraft.text.Text
 
-class CherryMenuScreen : LFScreen("Cherry Client") {
+class CherryMenuScreen : Screen(Text.literal("Cherry Client")) {
     private val modules = listOf(
         "Password Hider",
         "Auto Sprint",
@@ -20,16 +21,17 @@ class CherryMenuScreen : LFScreen("Cherry Client") {
         "Theme Switcher"
     )
 
-    override fun build() {
-        val x = 24
-        val y = 24
-        add(LFButton(x, y, 220, 24, "Cherry Client • Streaming Ready", {}))
-        add(LFButton(x, y + 32, 220, 20, "Right Shift Menu", {}))
-
+    override fun init() {
+        val buttonWidth = 220
+        val x = (width - buttonWidth) / 2
+        val firstY = 42
         modules.forEachIndexed { index, name ->
-            val buttonY = y + 64 + index * 20
-            val button = LFButton(x, buttonY, 220, 18, name, {})
-            add(button)
+            val buttonY = firstY + index * 22
+            addDrawableChild(
+                ButtonWidget.builder(Text.literal(name)) { button ->
+                    button.message = Text.literal("$name • ${if (button.message.string.endsWith("ON")) "OFF" else "ON"}")
+                }.dimensions(x, buttonY, buttonWidth, 20).build()
+            )
         }
     }
 }

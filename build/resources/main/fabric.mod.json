@@ -12,13 +12,16 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "com.groupdev.cherry.client.CherryClient"
+      {
+        "adapter": "kotlin",
+        "value": "com.groupdev.cherry.client.CherryClient"
+      }
     ]
   },
   "depends": {
-    "fabricloader": ">=0.16.14",
-    "minecraft": "~1.21.1",
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~1.21.11",
     "fabric-api": "*",
-    "lowframe_screen_api": ">=1.0.0"
+    "fabric-language-kotlin": ">=1.13.8"
   }
 }
